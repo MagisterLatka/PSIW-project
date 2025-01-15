@@ -154,6 +154,13 @@ void loadConfig(int configDesc, int* valTab[6]) {
 			exit(1);
 		}
 	}
+	if (valTab[0] <= 0 || valTab[1] <= 0 || valTab[2] <= 0 ||
+		valTab[3] <= 0 || valTab[4] <= 0 || valTab[5] <= 0) {
+
+		printf("Invalid config values\n");
+		close(configDesc);
+		exit(1);
+	}
 }
 void courier(int id, int pdesk[2], int msgQueue) {
 	int timeCounter = 0;

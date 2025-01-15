@@ -26,6 +26,11 @@ int main(int argc, char* argv[]) {
 	const char* key = argv[1];
 	int countOfRequests = atoi(argv[2]), maxA = atoi(argv[3]),
 		maxB = atoi(argv[4]), maxC = atoi(argv[5]);
+	if (countOfRequests <= 0 || maxA <= 0 || maxB <= 0 || maxC <= 0)
+	{
+		printf("Invalid arguments\n");
+		exit(1);
+	}
 	
 	int msgQueue = msgget(ftok(key, 69), 0640 | IPC_CREAT);
 
